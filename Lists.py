@@ -1,0 +1,114 @@
+from Node import SimpleNode
+from Node import DoubleNode
+
+class LinkedList:
+    def __init__(self):
+        self.head: SimpleNode = None
+        self.size = 0
+
+    def __sizeof__(self):
+        if self.head == None:
+            return 0
+        else:
+            # O(N) implementation
+            curNode: SimpleNode = self.head
+            size = 1
+            while curNode.next != None:
+                size += 1
+                curNode = curNode.next
+            
+            return size
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head: DoubleNode = None
+        self.size = 0
+        
+    def __sizeof__(self):
+        if self.head == None:
+            return 0
+        else:
+            # O(N) implementation
+            curNode: SimpleNode = self.head
+            size = 1
+            while curNode.next != None:
+                size += 1
+                curNode = curNode.next
+            
+            return size
+
+class Queue:
+    """
+    Head: New nodes go in here
+    Tail: Pop takes nodes from here
+    """
+    def __init__(self):
+        self.head: SimpleNode
+        self.tail: SimpleNode
+        self.size = 0
+
+    def __sizeof__(self):
+        return self.size
+    
+    def push(self, data):
+        self.size += 1
+        newNode = SimpleNode(data)
+
+        if self.head == None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            curHead = self.head
+            self.head = newNode
+            curHead.next = newNode
+
+    def pop(self):
+        if self.tail == None:
+            return None
+        elif self.size == 1:
+            self.size -= 1
+            returnVal = self.tail.data
+            self.head = None
+            self.tail = None
+            return returnVal
+        else:
+            self.size -= 1
+            returnVal = self.tail.data
+            self.tail = self.tail.next
+            return returnVal
+
+    def peek(self):
+        return self.tail.data
+
+    def isEmpty(self):
+        return self.size == 0
+
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.top = None
+
+    def __sizeof__(self):
+        return self.size
+
+    def push(self, data):
+        self.size += 1
+        if self.top == None:
+            self.top = SimpleNode(data)
+        else:
+            newNode = SimpleNode(data, self.top)
+            self.top = newNode
+
+    def pop(self):
+        if self.size == 0:
+            return None
+        else:
+            self.size -= 1
+            returnVal = self.top.data
+            self.top = self.top.next
+
+    def peek(self, data):
+        return self.top.data
+
+    def isEmpty(self) -> bool:
+        return self.size == 0
