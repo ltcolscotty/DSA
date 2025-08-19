@@ -1,4 +1,6 @@
 from Node import BinaryNode
+from Lists import Queue
+from Lists import Stack
 
 class GeneralTree():
     def __init__(self):

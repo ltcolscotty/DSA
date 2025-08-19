@@ -83,6 +83,30 @@ class Queue:
     def isEmpty(self):
         return self.size == 0
 
+class Deque:
+    def __init__(self):
+        self.head: SimpleNode = None
+        self.tail: SimpleNode = None
+        self.size = 0
+    
+    def __sizeof__(self):
+        return self.size
+
+    def push(self, data):
+        pass
+
+    def push_right(self, data):
+        pass
+
+    def pop(self):
+        pass
+
+    def pop_left(self):
+        pass
+
+    def isEmpty(self):
+        return self.size == 0
+
 class Stack:
     def __init__(self):
         self.size = 0
