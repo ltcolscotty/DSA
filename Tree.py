@@ -10,7 +10,7 @@ class GeneralTree():
         pass
 
     def BFS(self, data) -> BinaryNode | None:
-        if self.root == None:
+        if self.root is None:
             return None
         else:
             curNode = self.root
@@ -24,16 +24,16 @@ class GeneralTree():
                     return curNode
                 else:
 
-                    if curNode.left != None:
+                    if curNode.left is not None:
                         q.push(curNode.left)
                     
-                    if curNode.right != None:
+                    if curNode.right is not None:
                         q.push(curNode.right)
             
             return None
     
     def printOriginArray(self):
-        if self.root == None:
+        if self.root is None:
             print("N/A")
         else:
             curNode = self.root
@@ -45,10 +45,10 @@ class GeneralTree():
 
                 print(curNode.data)
 
-                if curNode.left != None:
+                if curNode.left is not None:
                     q.push(curNode.left)
                 
-                if curNode.right != None:
+                if curNode.right is not None:
                     q.push(curNode.right)
             
             return None
