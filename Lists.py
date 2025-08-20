@@ -7,7 +7,7 @@ class LinkedList:
         self.size = 0
 
     def __sizeof__(self):
-        if self.head == None:
+        if self.head is None:
             return 0
         else:
             # O(N) implementation
@@ -25,7 +25,7 @@ class DoublyLinkedList:
         self.size = 0
         
     def __sizeof__(self):
-        if self.head == None:
+        if self.head is None:
             return 0
         else:
             # O(N) implementation
@@ -43,8 +43,8 @@ class Queue:
     Tail: Pop takes nodes from here
     """
     def __init__(self):
-        self.head: SimpleNode
-        self.tail: SimpleNode
+        self.head: SimpleNode = None
+        self.tail: SimpleNode = None
         self.size = 0
 
     def __sizeof__(self):
@@ -54,7 +54,7 @@ class Queue:
         self.size += 1
         newNode = SimpleNode(data)
 
-        if self.head == None:
+        if self.head is None:
             self.head = newNode
             self.tail = newNode
         else:
@@ -63,7 +63,7 @@ class Queue:
             curHead.next = newNode
 
     def pop(self):
-        if self.tail == None:
+        if self.tail is None:
             return None
         elif self.size == 1:
             self.size -= 1
@@ -117,7 +117,7 @@ class Stack:
 
     def push(self, data):
         self.size += 1
-        if self.top == None:
+        if self.top is None:
             self.top = SimpleNode(data)
         else:
             newNode = SimpleNode(data, self.top)

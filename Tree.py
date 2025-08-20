@@ -31,6 +31,27 @@ class GeneralTree():
                         q.push(curNode.right)
             
             return None
+    
+    def printOriginArray(self):
+        if self.root == None:
+            print("N/A")
+        else:
+            curNode = self.root
+            q = Queue()
+            q.push(curNode)
+
+            while not q.isEmpty():
+                curNode = q.pop()
+
+                print(curNode.data)
+
+                if curNode.left != None:
+                    q.push(curNode.left)
+                
+                if curNode.right != None:
+                    q.push(curNode.right)
+            
+            return None
 
 
 
