@@ -4,18 +4,39 @@ from Lists import Stack
 
 class GeneralTree():
     def __init__(self):
-        self.root
+        self.root: BinaryNode = None
     
     def DFS(self, data) -> BinaryNode | None:
         pass
 
     def BFS(self, data) -> BinaryNode | None:
-        pass
+        if self.root == None:
+            return None
+        else:
+            curNode = self.root
+            q = Queue()
+            q.push(curNode)
+
+            while not q.isEmpty():
+                curNode = q.pop()
+
+                if curNode.data == data:
+                    return curNode
+                else:
+
+                    if curNode.left != None:
+                        q.push(curNode.left)
+                    
+                    if curNode.right != None:
+                        q.push(curNode.right)
+            
+            return None
+
 
 
 class BinarySearchTree():
     def __init__(self):
-        self.root
+        self.root = None
 
     def insert(self, data: int | float):
         pass
