@@ -131,8 +131,13 @@ class Deque:
             ret_data = self.head.data
             cur_head = self.head
             next_head = self.head.next
-            if next_head is not None:
-                
+            cur_head.next = None
+            self.head = next_head
+            if next_head is None:
+                self.tail = None
+            return ret_data
+        else:
+            return None
 
     def isEmpty(self):
         return self.size == 0
