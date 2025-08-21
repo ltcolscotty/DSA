@@ -7,7 +7,24 @@ class GeneralTree():
         self.root: BinaryNode = None
     
     def DFS(self, data) -> BinaryNode | None:
-        pass
+        if self.root is None:
+            return None
+        else:
+            curNode = self.root
+            s = Stack()
+            s.push(curNode)
+
+            while not s.isEmpty():
+                curNode: BinaryNode = s.pop()
+
+                if curNode.data == data:
+                    return curNode
+                else:
+                    if curNode.left is not None:
+                        s.push(curNode.left)
+                    
+                    if curNode.right is not None:
+                        s.push(curNode.right)
 
     def BFS(self, data) -> BinaryNode | None:
         if self.root is None:
@@ -18,7 +35,7 @@ class GeneralTree():
             q.push(curNode)
 
             while not q.isEmpty():
-                curNode = q.pop()
+                curNode: BinaryNode = q.pop()
 
                 if curNode.data == data:
                     return curNode
