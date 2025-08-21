@@ -111,16 +111,28 @@ class Deque:
             self.tail = newNode
 
     def pop(self):
-        ret_data = self.tail.data
-        cur_tail = self.tail
-        prev = self.tail.previous
-        prev.next = None
-        cur_tail.previous = None
-        return ret_data
+        if self.tail is not None:
+            ret_data = self.tail.data
+            cur_tail = self.tail
+            prev = self.tail.previous
+            cur_tail.previous = None
+            if prev is not None:
+                prev.next = None
+            else:
+                self.head = None
+                self.tail = None
+            return ret_data
+        else:
+            return None
 
 
     def pop_left(self):
-        pass
+        if self.head is not None:
+            ret_data = self.head.data
+            cur_head = self.head
+            next_head = self.head.next
+            if next_head is not None:
+                
 
     def isEmpty(self):
         return self.size == 0
