@@ -73,11 +73,38 @@ class GeneralTree():
 
 
 class BinarySearchTree():
+    """
+    BST - Not guaranteed to be balanced; Duplicate keys is NOT allowed
+    """
     def __init__(self):
         self.root = None
 
     def insert(self, data: int | float):
-        pass
+        newNode = BinaryNode(data)
+        if self.root is None:
+            self.root = newNode
+        else:
+            curNode = self.root
+            spot = False
+            while not spot:
+                if data < self.root.data:
+                    if curNode.left is not None:
+                        curNode = curNode.left
+                    else:
+                        curNode.left = newNode
+                        spot = True
+
+                elif data > self.root.data:
+                    if curNode.right is not None:
+                        curNode = curNode.right
+                    else:
+                        curNode.right = newNode
+                        spot = True
+                else:
+                    # No definitive behavior
+                    spot = True
+            
+            return
 
     def search(self, data: int | float) -> bool:
         pass
