@@ -85,21 +85,39 @@ class Queue:
 
 class Deque:
     def __init__(self):
-        self.head: SimpleNode = None
-        self.tail: SimpleNode = None
+        self.head: DoubleNode = None
+        self.tail: DoubleNode = None
         self.size = 0
     
     def __sizeof__(self):
         return self.size
 
     def push(self, data):
-        pass
+        newNode = DoubleNode(data)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
 
     def push_right(self, data):
-        pass
+        newNode = DoubleNode(data)
+        if self.tail is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.tail
+            self.tail = newNode
 
     def pop(self):
-        pass
+        ret_data = self.tail.data
+        cur_tail = self.tail
+        prev = self.tail.previous
+        prev.next = None
+        cur_tail.previous = None
+        return ret_data
+
 
     def pop_left(self):
         pass
