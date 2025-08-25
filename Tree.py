@@ -2,10 +2,11 @@ from Node import BinaryNode
 from Lists import Queue
 from Lists import Stack
 
-class GeneralTree():
+
+class GeneralTree:
     def __init__(self):
         self.root: BinaryNode = None
-    
+
     def DFS(self, data) -> BinaryNode | None:
         if self.root is None:
             return None
@@ -22,7 +23,7 @@ class GeneralTree():
                 else:
                     if curNode.left is not None:
                         s.push(curNode.left)
-                    
+
                     if curNode.right is not None:
                         s.push(curNode.right)
 
@@ -43,12 +44,12 @@ class GeneralTree():
 
                     if curNode.left is not None:
                         q.push(curNode.left)
-                    
+
                     if curNode.right is not None:
                         q.push(curNode.right)
-            
+
             return None
-    
+
     def printOriginArray(self):
         if self.root is None:
             print("N/A")
@@ -64,18 +65,18 @@ class GeneralTree():
 
                 if curNode.left is not None:
                     q.push(curNode.left)
-                
+
                 if curNode.right is not None:
                     q.push(curNode.right)
-            
+
             return None
 
 
-
-class BinarySearchTree():
+class BinarySearchTree:
     """
     BST - Not guaranteed to be balanced; Duplicate keys is NOT allowed
     """
+
     def __init__(self):
         self.root = None
 
@@ -103,7 +104,7 @@ class BinarySearchTree():
                 else:
                     # No definitive behavior
                     spot = True
-            
+
             return
 
     def search(self, data: int | float) -> bool:

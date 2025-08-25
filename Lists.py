@@ -1,6 +1,7 @@
 from Node import SimpleNode
 from Node import DoubleNode
 
+
 class LinkedList:
     def __init__(self):
         self.head: SimpleNode = None
@@ -16,14 +17,15 @@ class LinkedList:
             while curNode.next != None:
                 size += 1
                 curNode = curNode.next
-            
+
             return size
+
 
 class DoublyLinkedList:
     def __init__(self):
         self.head: DoubleNode = None
         self.size = 0
-        
+
     def __sizeof__(self):
         if self.head is None:
             return 0
@@ -34,14 +36,16 @@ class DoublyLinkedList:
             while curNode.next != None:
                 size += 1
                 curNode = curNode.next
-            
+
             return size
+
 
 class Queue:
     """
     Head: New nodes go in here
     Tail: Pop takes nodes from here
     """
+
     def __init__(self):
         self.head: SimpleNode = None
         self.tail: SimpleNode = None
@@ -49,7 +53,7 @@ class Queue:
 
     def __sizeof__(self):
         return self.size
-    
+
     def push(self, data):
         self.size += 1
         newNode = SimpleNode(data)
@@ -83,12 +87,13 @@ class Queue:
     def isEmpty(self):
         return self.size == 0
 
+
 class Deque:
     def __init__(self):
         self.head: DoubleNode = None
         self.tail: DoubleNode = None
         self.size = 0
-    
+
     def __sizeof__(self):
         return self.size
 
@@ -125,7 +130,6 @@ class Deque:
         else:
             return None
 
-
     def pop_left(self):
         if self.head is not None:
             ret_data = self.head.data
@@ -141,6 +145,7 @@ class Deque:
 
     def isEmpty(self):
         return self.size == 0
+
 
 class Stack:
     def __init__(self):
